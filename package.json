@@ -1,22 +1,23 @@
 {
-  "name": "tilelive-wms",
+  "name": "tilelive-imageserver",
   "version": "1.0.0",
-  "description": "Tilelive source for WMS services.",
+  "description": "Tilelive source for ArcGIS ImageServer services.",
   "main": "index.js",
   "scripts": {
     "test": "test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/trailbehind/tilelive-wms.git"
+    "url": "git://github.com/trailbehind/tilelive-imageserver.git"
   },
   "author": "Tony Cannistra",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/trailbehind/tilelive-wms/issues"
+    "url": "https://github.com/trailbehind/tilelive-imageserver/issues"
   },
-  "homepage": "https://github.com/trailbehind/tilelive-wms#readme",
+  "homepage": "https://github.com/trailbehind/tilelive-imageserver#readme",
   "dependencies": {
+    "@mapbox/sphericalmercator": "^1.1.0",
     "@mapbox/tilelive": "^6.1.0",
     "request": "^2.88.2",
     "retry-request": "^4.1.3"
