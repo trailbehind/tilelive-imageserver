@@ -1,0 +1,24 @@
+{
+  "name": "tilelive-wms",
+  "version": "1.0.0",
+  "description": "Tilelive source for WMS services.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/trailbehind/tilelive-wms.git"
+  },
+  "author": "Tony Cannistra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trailbehind/tilelive-wms/issues"
+  },
+  "homepage": "https://github.com/trailbehind/tilelive-wms#readme",
+  "dependencies": {
+    "@mapbox/tilelive": "^6.1.0",
+    "request": "^2.88.2",
+    "retry-request": "^4.1.3"
+  }
+}
