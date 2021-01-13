@@ -95,7 +95,7 @@ ImageServerSource.prototype.getTile = function(z, x, y, callback) {
         case 200:
         case 403:
         case 404:
-          return callback(null, body, {});
+          return callback(null, body, {"content-type": "image/png"});
         default:
           console.warn(
             "ImageServer URL " +
