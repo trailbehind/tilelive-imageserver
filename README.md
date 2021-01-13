@@ -12,6 +12,8 @@ The documentation used for implementation is [here](https://developers.arcgis.co
 * `rasterFunction`: the rasterFunction provided by the source server to apply to the data. (Optional)
 * `minzoom`: optional, default 0
 * `maxzoom`: optional, default 14
+* `baseTileSize`: base tile size in pixels (default 256)
+* `scale`: integer to scale base tile size (default 1)
 
 **Examples**: 
 

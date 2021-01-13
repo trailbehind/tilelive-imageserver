@@ -25,7 +25,8 @@ function ImageServerSource(uri, callback){
     this.name = "ImageServerSource"
     this.minzoom = parseInt(parsed_uri.query.minzoom || "0");
     this.maxzoom = parseInt(parsed_uri.query.maxzoom || "14");
-
+    this.scale = parseInt(parsed_uri.query.scale || "1");
+    this.tilesize = parseInt(parsed_uri.query.baseTileSize || "256");
 
 
     verifySource(parsed_uri['query']['source'], function(e){
@@ -63,8 +64,10 @@ ImageServerSource.prototype.getTile = function(z, x, y, callback){
 
     var tile_bbox = merc.bbox(x, y, z);
 
+    var tilesize = this.tilesize * this.scale;
+
     var params = {
-        size: "256,256",
+        size: tilesize + "," + tilesize,
         format: 'png',
         f: 'image',
         bboxSR: 4326,
