@@ -43,7 +43,7 @@ function ImageServerSource(uri, callback){
 }
 
 function verifySource(root_url, callback){
-    request(root_url+"/?f=json", function(e, resp, body){
+    request(root_url + "/?f=json", retry_options, function(e, resp, body){
         if (e) return callback(e)
         if (resp = 200) {
 
@@ -83,7 +83,9 @@ ImageServerSource.prototype.getTile = function(z, x, y, callback){
         url: this.server_root + "/exportImage",
         encoding: null,
         qs: params
-    }, function(error, response, body){ 
+    }, 
+    retry_options, 
+    function(error, response, body){ 
         if (error) {
             return callback(error)
         }
