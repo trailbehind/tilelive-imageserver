@@ -73,10 +73,11 @@ ImageServerSource.prototype.getTile = function(z, x, y, callback) {
   var tile_bbox = merc.bbox(x, y, z);
 
   var tilesize = this.tilesize * this.scale;
+  var format = this.format;
 
   var params = {
     size: tilesize + "," + tilesize,
-    format: "png",
+    format: format,
     f: "image",
     bboxSR: 4326,
     bbox: tile_bbox.join(",")
@@ -88,7 +89,6 @@ ImageServerSource.prototype.getTile = function(z, x, y, callback) {
   }
 
   var root = this.server_root;
-  var format = this.format;
 
   request(
     {
