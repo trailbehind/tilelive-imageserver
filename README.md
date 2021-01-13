@@ -14,6 +14,7 @@ The documentation used for implementation is [here](https://developers.arcgis.co
 - `maxzoom`: optional, default 14
 - `baseTileSize`: base tile size in pixels (default 256)
 - `scale`: integer to scale base tile size (default 1)
+- `format`: image format, currently png and jpg are supported.
 
 **Examples**:
 

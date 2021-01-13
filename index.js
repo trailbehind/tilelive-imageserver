@@ -17,6 +17,15 @@ var merc = new SphericalMercator({
   size: 256
 });
 
+var SUPPORTED_FORMATS = {
+  jpg: {
+    mime: "image/jpeg"
+  },
+  png: {
+    mime: "image/png"
+  }
+};
+
 function ImageServerSource(uri, callback) {
   var parsed_uri = url.parse(uri, true);
 
@@ -25,6 +34,7 @@ function ImageServerSource(uri, callback) {
   this.maxzoom = parseInt(parsed_uri.query.maxzoom || "14");
   this.scale = parseInt(parsed_uri.query.scale || "1");
   this.tilesize = parseInt(parsed_uri.query.baseTileSize || "256");
+  this.format = parsed_uri.query.format || "png";
 
   verifySource(parsed_uri["query"]["source"], function(e) {
     if (e) {
@@ -78,6 +88,7 @@ ImageServerSource.prototype.getTile = function(z, x, y, callback) {
   }
 
   var root = this.server_root;
+  var format = this.format;
 
   request(
     {
@@ -95,7 +106,9 @@ ImageServerSource.prototype.getTile = function(z, x, y, callback) {
         case 200:
         case 403:
         case 404:
-          return callback(null, body, {"content-type": "image/png"});
+          return callback(null, body, {
+            "content-type": SUPPORTED_FORMATS[format].mime
+          });
         default:
           console.warn(
             "ImageServer URL " +
@@ -119,7 +132,7 @@ ImageServerSource.prototype.getInfo = function(callback) {
     maxzoom: this.maxzoom,
     center: [-119.4835, 37.8042, 12],
     bounds: [-180, -85.0511, 180, 85.0511],
-    format: "png"
+    format: this.format
   });
 };
 
