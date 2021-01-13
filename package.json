@@ -11,7 +11,7 @@
     "url": "git://github.com/trailbehind/tilelive-imageserver.git"
   },
   "author": "Tony Cannistra",
-  "license": "ISC",
+  "license": "BSD",
   "bugs": {
     "url": "https://github.com/trailbehind/tilelive-imageserver/issues"
   },
