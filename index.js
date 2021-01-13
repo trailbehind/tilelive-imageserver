@@ -1,5 +1,3 @@
-"use strict";
-
 module.exports = ImageServerSource;
 
 var request = require('retry-request', {
@@ -40,8 +38,6 @@ function ImageServerSource(uri, callback){
     this.options = parsed_uri['query']
     delete this.options.source 
 
-    console.log(this.options)
-
     callback(null, this)
 
 }
@@ -80,7 +76,6 @@ ImageServerSource.prototype.getTile = function(z, x, y, callback){
 
     }
 
-    console.log(params)
 
     var root = this.server_root;
 
