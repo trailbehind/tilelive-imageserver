@@ -1,0 +1,7 @@
+repos:
+  - repo: https://github.com/prettier/prettier
+    rev: "1.16.3"
+    hooks:
+      - id: prettier
+        files: \.(js|md)$
+        language_version: system
